@@ -6,6 +6,7 @@ const passport = require('passport');
 const session = require('express-session');
 const UserDetails = require('./userDetails');
 const routes = require('./routes/router');
+require('dotenv').config();
 
 // set up view engine and layout
 app.use(expressLayouts);
@@ -37,3 +38,5 @@ app.use(routes);
 const server = app.listen(3000, () => {
   console.log(`Listening on port ${server.address().port}`);
 });
+
+UserDetails.register({ username: 'nemo', active: false }, '123');
