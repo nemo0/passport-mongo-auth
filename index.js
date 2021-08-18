@@ -34,9 +34,9 @@ passport.deserializeUser(UserDetails.deserializeUser());
 
 app.use(routes);
 
-// Set up express server
-const server = app.listen(3000, () => {
-  console.log(`Listening on port ${server.address().port}`);
-});
+const PORT = process.env.PORT || 3000;
 
-UserDetails.register({ username: 'nemo', active: false }, '123');
+// Set up express server
+const server = app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+});
